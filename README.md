@@ -4,7 +4,9 @@ A to-do list notification system  helps users stay organized and on top of their
 
 week 4 - Requirements                                                                                                                                                                                                                                                         
 week 5 - Architecture                                                                                                             
-week 6 - Analysis                                                                                                 
+week 6 - Analysis        
+Presentation (system Arch & Class Diagrams)     
+                                                                                    
 week 7 - Coding Iteration 1: MVC & 1 use case, test cases                                                              
 week 8 - Coding Iteration 2: two more use cases and design patterns                                                       
 week 9 - Coding Iteration 3: another cases and design patterns                                                               
