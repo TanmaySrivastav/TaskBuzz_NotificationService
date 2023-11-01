@@ -29,10 +29,10 @@ public class SecurityConfig {
 	    @Autowired
 	    private PasswordEncoder passwordEncoder;
 	    
-	    @Bean
-	    public JwtAuthenticationFilter jwtAuthenticationFilter() {
-	        return new JwtAuthenticationFilter();
-	    }
+//	    @Bean
+//	    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+//	        return new JwtAuthenticationFilter();
+//	    }
 
 	    @Bean
 	    public LoggingJwtAuthenticationFilterDecorator loggingJwtAuthenticationFilterDecorator(JwtAuthenticationFilter jwtAuthenticationFilter) {
@@ -54,7 +54,7 @@ public class SecurityConfig {
 	       // http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 	        
 	     // Add the LoggingJwtAuthenticationFilterDecorator to the filter chain
-	        http.addFilterBefore(loggingJwtAuthenticationFilterDecorator(jwtAuthenticationFilter()), UsernamePasswordAuthenticationFilter.class);
+	        http.addFilterBefore(loggingJwtAuthenticationFilterDecorator(filter), UsernamePasswordAuthenticationFilter.class);
 	        
 	        return http.build();
 	    }
