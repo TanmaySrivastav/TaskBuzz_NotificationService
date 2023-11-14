@@ -1,16 +1,11 @@
-package com.jwt.demo.repository;
-
-import java.util.Optional;
+package com.todolistapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.jwt.demo.entities.User;
+import com.todolistapp.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Long>{
-	
-	
-	public Optional<User> findByEmail(String email);
-	
-	
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
