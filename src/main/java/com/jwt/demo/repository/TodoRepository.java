@@ -1,11 +1,11 @@
-package com.jwt.demo.repository;
+package com.todolistapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.jwt.demo.entities.Todo;
+import com.todolistapp.entity.Todo;
 
-
-
-public interface TodoRepository extends JpaRepository<Todo,Long>  {
+@Repository
+public interface ToDoRepository extends JpaRepository<Todo, Long> {
 
 }
