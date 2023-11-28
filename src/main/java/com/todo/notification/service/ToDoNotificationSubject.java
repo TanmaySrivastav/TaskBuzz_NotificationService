@@ -18,6 +18,9 @@ public class ToDoNotificationSubject {
 
 	@Autowired
 	private UserDataRepo userRepo;
+	
+	@Autowired
+	private SmsService smsService;
 
 	private List<User> userObservers = new ArrayList<>();
 
@@ -29,17 +32,22 @@ public class ToDoNotificationSubject {
 		this.userObservers.remove(user);
 	}
 
-	public void sendCompleteNotificationEmail() {
+	public void sendCompleteNotifEmailSms() {
 		List<User> userObservers = userRepo.findCompletedTask();
 		for (User user : userObservers) {
+			// mail send
 			notifyObserver.updateCompleteNotificationMail(user);
-		}
+			//sms send
+			smsService.sendSms(user.getPhoneNumber(), user.getTodoList(),true); }
 	}
 
-	public void sendReminderNotificationEmail() {
+	public void sendReminderNotifEmailSms() {
 		List<User> userDueDate = userRepo.getTaskDueDateDetails();
 		for (User userTodoDetails : userDueDate) {
+			// mail send
 			notifyObserver.updateReminderNotificationMail(userTodoDetails);
+			//sms send
+			smsService.sendSms(userTodoDetails.getPhoneNumber(), userTodoDetails.getTodoList(),false);
 		}
 	}
 

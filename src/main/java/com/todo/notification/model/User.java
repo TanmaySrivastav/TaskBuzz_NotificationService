@@ -20,7 +20,7 @@ public class User {
 	private String name;
 	private String emailId;
 	private String password;
-	
+	private String phoneNumber;
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -28,7 +28,7 @@ public class User {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Todo> todoList = new ArrayList<>();
 
-	public User(Long userId, String name, String emailId, String password, Role role,
+	public User(Long userId, String name, String emailId, String password, Role role, String phoneNumber,
 			List<Todo> todoList) {
 		super();
 		this.userId = userId;
@@ -37,6 +37,7 @@ public class User {
 		this.password = password;
 		this.role = role;
 		this.todoList = todoList;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public User() {
@@ -92,12 +93,18 @@ public class User {
 		this.todoList = todoList;
 	}
 
-	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", emailId=" + emailId + ", password=" + password
-				+ ", role=" + role + ", todoList=" + todoList + "]";
+				+ ", phoneNumber=" + phoneNumber + ", role=" + role + ", todoList=" + todoList + "]";
 	}
 
 }
