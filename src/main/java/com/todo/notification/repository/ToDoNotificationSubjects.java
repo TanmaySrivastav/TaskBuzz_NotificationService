@@ -2,12 +2,27 @@ package com.todo.notification.repository;
 
 import org.springframework.stereotype.Repository;
 
+import com.todo.notification.model.User;
+
+/**
+ * @author Rishikesh
+ *
+ */
 @Repository
 public interface ToDoNotificationSubjects {
 
-	void registerObserver(ToDoNotificationObserver observer);
+	 /**
+	 * @param userObserver
+	 */
+	void addObserver(User userObserver);
 
-	void removeObserver(ToDoNotificationObserver observer);
+	 /**
+	 * @param user
+	 */
+	void removeObserver(User user);
 
-	void notifyObservers(String message);
+	 void sendCompleteNotifEmailSms();
+	 
+	 void sendReminderNotifEmailSms();
+	 
 }

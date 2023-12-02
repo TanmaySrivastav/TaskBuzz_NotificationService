@@ -9,11 +9,18 @@ import com.todo.notification.model.Todo;
 import com.todo.notification.model.User;
 import com.todo.notification.repository.ToDoNotificationObserver;
 
+/**
+ * @author Rishikesh
+ *
+ */
 @Service
 public class ToDoEmailNotificationService implements ToDoNotificationObserver {
 
 	private JavaMailSender javaMailSender;
 
+	/**
+	 * @param javaMailSender
+	 */
 	public ToDoEmailNotificationService(JavaMailSender javaMailSender) {
 		this.javaMailSender = javaMailSender;
 	}
@@ -23,11 +30,13 @@ public class ToDoEmailNotificationService implements ToDoNotificationObserver {
 		try {
 			sendCompleteNotificationMail(user);
 		} catch (MailException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error occured while sending mail: " + e.getMessage());
 		}
 	}
 
+	/**
+	 * @param user
+	 */
 	private void sendCompleteNotificationMail(User user) {
 		for (Todo todo : user.getTodoList()) {
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -38,6 +47,9 @@ public class ToDoEmailNotificationService implements ToDoNotificationObserver {
 		}
 	}
 
+	/**
+	 * @param user
+	 */
 	private void sendReminderNotificationMail(User user) {
 		for (Todo todo : user.getTodoList()) {
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -53,8 +65,7 @@ public class ToDoEmailNotificationService implements ToDoNotificationObserver {
 		try {
 			sendReminderNotificationMail(user);
 		} catch (MailException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error occured while sending mail: " + e.getMessage());
 		}
 	}
 
