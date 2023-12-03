@@ -16,7 +16,7 @@ import com.todo.notification.repository.ToDoNotificationSubjects;
  *
  */
 @RestController
-@RequestMapping("/todo")
+@RequestMapping("/notification")
 public class TodoNotificationController {
 
 	
